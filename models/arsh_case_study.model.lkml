@@ -65,6 +65,18 @@ explore: customer_lifetime_orders {
     relationship: one_to_one
   }
 
+  join: order_items {
+    type: inner
+    sql_on: ${customer_lifetime_orders.user_id} = ${order_items.user_id}  ;;
+    relationship: one_to_many
+  }
+
+  join: products {
+    type: left_outer
+    sql_on: ${order_items.product_id} = ${products.id} ;;
+    relationship: many_to_one
+  }
+
 }
 
 explore: inventory_items {

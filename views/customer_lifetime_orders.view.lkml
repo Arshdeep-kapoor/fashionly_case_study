@@ -41,7 +41,7 @@ view: customer_lifetime_orders {
     style: integer
     tiers: [0,5,20,50,100,500,1000]
     sql: ${TABLE}.total_revenue ;;
-    value_format_name: usd
+    value_format_name: usd_0
   }
 
   measure: user_total_revenue {
@@ -53,6 +53,7 @@ view: customer_lifetime_orders {
   measure: avg_user_lifetime_spend {
     type: average
     sql: ${TABLE}.total_revenue;;
+    value_format_name: usd
   }
 
   measure: avg_user_lifetime_orders {
@@ -65,10 +66,12 @@ view: customer_lifetime_orders {
     sql: ${TABLE}.total_users ;;
   }
 
-  dimension: days_since_order_placed {
-    type: duration_day
+  dimension_group: since_order_placed {
+    type: duration
+    datatype: date
     sql_start: ${TABLE}.last_order ;;
     sql_end: current_date() ;;
+    intervals: [day]
   }
 
   dimension: is_active {
