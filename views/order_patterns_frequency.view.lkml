@@ -34,6 +34,11 @@ view: order_patterns_frequency {
 
     }
 
+  filter: product_category {
+    suggest_explore: products
+    suggest_dimension: products.category
+  }
+
     dimension: category {
       sql:${TABLE}.category ;;
       type:string
