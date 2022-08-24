@@ -13,6 +13,11 @@ view: customer_lifetime_orders {
       GROUP BY 1;;
   }
 
+  filter: product_category {
+    suggest_explore: products
+    suggest_dimension: products.category
+  }
+
   dimension: user_id {
     type: number
     primary_key: yes
