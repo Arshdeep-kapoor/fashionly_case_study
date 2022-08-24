@@ -22,6 +22,7 @@ persist_with: arsh_case_study_default_datagroup
 # To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Arsh Case Study"
 
 explore: order_items {
+  sql_always_where: ${created_date} >= '2017-01-01' ;;
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
@@ -72,6 +73,10 @@ explore: customer_lifetime_orders {
   }
 
   join: products {
+    fields: [products.average_cost, products.brand,
+      products.category, products.cost, products.total_cost,
+      products.cost, products.count, products.id,
+      products.department, products.retail_price, products.name]
     type: left_outer
     sql_on: ${order_items.product_id} = ${products.id} ;;
     relationship: many_to_one
