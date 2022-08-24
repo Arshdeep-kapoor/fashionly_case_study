@@ -34,21 +34,15 @@ view: order_patterns_frequency {
 
     }
 
-
-
-    filter: product_category {
-      suggest_dimension: category
-    }
-
-    dimension: category {sql:${TABLE}.category ;; type:string}
-
-
+    dimension: category {
+      sql:${TABLE}.category ;;
+      type:string
+      }
 
     dimension: row_number {
       primary_key: yes
       hidden: yes
       sql: ${TABLE}.rownumber ;;
-
     }
 
     measure: count {
@@ -60,14 +54,10 @@ view: order_patterns_frequency {
       hidden: yes
     }
 
-
-
     dimension: lifetime_orders {
       sql: ${TABLE}.lifetime_orders ;;
       hidden: yes
     }
-
-
 
     dimension_group: first_order_date {
       sql: ${TABLE}.first_order_date ;;
@@ -82,23 +72,16 @@ view: order_patterns_frequency {
       style: integer
     }
 
-
-
     dimension: order_id {
       type: string
       sql: ${TABLE}.order_id ;;
     }
 
-
-
     dimension: order_date {
       hidden:yes
       type: string
-
       sql: ${TABLE}.order_date ;;
-
     }
-
 
 
     dimension: order_sequence_number {
@@ -107,12 +90,10 @@ view: order_patterns_frequency {
     }
 
 
-
     dimension: next_created_at {
       type: string
       sql: ${TABLE}.next_created_at ;;
     }
-
 
 
     dimension: next_order_gap {
@@ -122,15 +103,12 @@ view: order_patterns_frequency {
     }
 
 
-
     dimension: repurchase_tier {
       type: tier
       tiers: [30,60,90,120,150,180]
       style: integer
       sql: ${next_order_gap} ;;
     }
-
-
 
     dimension: days_since_first_order {
       type: number

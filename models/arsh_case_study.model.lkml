@@ -22,7 +22,7 @@ persist_with: arsh_case_study_default_datagroup
 # To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Arsh Case Study"
 
 explore: order_items {
-  sql_always_where: ${created_date} >= '2017-01-01' ;;
+  sql_always_where: ${order_items.created_date} >= '2017-01-01' ;;
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
