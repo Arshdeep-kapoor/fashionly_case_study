@@ -108,6 +108,8 @@ explore: events {
 
 explore: users {}
 
+explore: order_patterns_frequency {}
+
 explore: products {
   join: distribution_centers {
     type: left_outer
