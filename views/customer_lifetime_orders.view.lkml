@@ -1,5 +1,4 @@
 view: customer_lifetime_orders {
-  ##native drived tables
   derived_table: {
     sql:
       SELECT
