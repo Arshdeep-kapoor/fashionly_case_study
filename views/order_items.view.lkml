@@ -95,6 +95,12 @@ view: order_items {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
+  measure: order_count {
+    description: "A count of unique orders"
+    type: count_distinct
+    sql: ${order_id} ;;
+  }
+
   measure: total_sale_price {
     type: sum
     sql: ${sale_price} ;;
