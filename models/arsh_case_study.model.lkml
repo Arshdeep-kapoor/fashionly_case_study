@@ -106,6 +106,7 @@ explore: events {
   }
 }
 
+explore: dt_clo {}
 explore: users {}
 
 explore: order_patterns_frequency {}
